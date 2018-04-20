@@ -72,6 +72,7 @@ Email:
 
   # set host and port of the SMTP server to use to send mail
   # e.g. host: smtp.gmail.com   port: 587
+  # exchange email port = 0
   host: smtp.gmail.com
   port: 587
 
