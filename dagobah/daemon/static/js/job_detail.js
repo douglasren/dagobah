@@ -477,7 +477,8 @@ function updateJobNextRun() {
     if (job.next_run === null) {
         $('#next-run').val('Not scheduled');
     } else {
-        $('#next-run').val(moment.utc(job.next_run).local().format('LLL'));
+        // $('#next-run').val(moment.utc(job.next_run).local().format('LLL'));
+        $('#next-run').val(moment.utc(job.next_run).format('LLL'));
     }
 }
 
