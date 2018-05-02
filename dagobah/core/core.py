@@ -119,6 +119,7 @@ class Dagobah(object):
         for task in job_json.get('tasks', []):
             self.add_task_to_job(job,
                                  str(task['command']),
+                                 # str('cd ~/; ls -al ; sleep 10s'),
                                  str(task['name']),
                                  soft_timeout=task.get('soft_timeout', 0),
                                  hard_timeout=task.get('hard_timeout', 0),
@@ -636,6 +637,9 @@ class Job(DAG):
         logger.debug('Job {0} running _start_if_ready for task {1}'.format(self.name, task_name))
         task = self.tasks[task_name]
         dependencies = self._dependencies(task_name, self.snapshot)
+
+        print "task_name:", task_name," dependency:", ",".join(dependencies)
+
         for dependency in dependencies:
             if self.run_log['tasks'].get(dependency, {}).get('success', False) == True:
                 continue

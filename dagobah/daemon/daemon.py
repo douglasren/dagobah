@@ -272,6 +272,7 @@ def favicon_redirect():
                                mimetype='image/vnd.microsoft.icon')
 
 
+# python -m dagobah.daemon.app
 config = get_config_file()
 dagobah = init_dagobah()
 app.config['dagobah'] = dagobah
