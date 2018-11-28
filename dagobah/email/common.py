@@ -1,3 +1,4 @@
+# coding=utf-8
 """ Common email class to base specific templates off of. """
 
 import os
@@ -49,7 +50,9 @@ class EmailTemplate(object):
     def _address_message(self):
         email_addr = self.from_address if self.user is None else self.user
 
-        self.message['From'] = email.utils.formataddr((self.from_address, email_addr))
+        # self.message['From'] = email.utils.formataddr((self.from_address, email_addr))
+        # exchange 改变from格式，会出现权限问题
+        self.message['From'] = self.from_address
         self.message['To'] = ','.join(self.recipients)
 
 
